@@ -1,0 +1,26 @@
+FlexObservers
+=============
+
+When you need a transaction block without notify observers
+
+
+Example
+=======
+
+person = User.new({ :name => "Joe Doe" })
+person.without_observers("UserObserver") do
+  person.save
+end
+
+person = User.new({ :name => "Joe Doe" })
+person.without_observers("UserObserver", "SyncInfoObserver") do
+  person.save
+end
+
+person = User.new({ :name => "Joe Doe" })
+person.without_observers("*") do
+  person.save
+end
+
+
+Copyright (c) 2010 Adrian Sanchez, released under the MIT license
